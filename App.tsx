@@ -6,9 +6,11 @@ import {
   Hero, Benefits, Vehicles, Specs, Comparison, 
   Testimonials, FAQ, Footer 
 } from './components/Sections';
+import { PurchaseModal } from './components/PurchaseModal';
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('fr');
+  const [isPurchaseModalOpen, setIsPurchaseModalOpen] = useState(false);
   
   // Get current content based on state
   const content = translations[lang];
@@ -26,6 +28,9 @@ const App: React.FC = () => {
       document.body.classList.add('font-sans');
     }
   }, [lang]);
+
+  const openCheckout = () => setIsPurchaseModalOpen(true);
+  const closeCheckout = () => setIsPurchaseModalOpen(false);
 
   return (
     <div className={`min-h-screen bg-tech-black text-slate-200 selection:bg-blue-500 selection:text-white ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
@@ -53,7 +58,7 @@ const App: React.FC = () => {
 
       {/* Main Content */}
       <main>
-        <Hero content={content} />
+        <Hero content={content} onBuy={openCheckout} />
         <Benefits content={content} />
         <Vehicles content={content} />
         <Comparison content={content} />
@@ -62,7 +67,14 @@ const App: React.FC = () => {
         <FAQ content={content} />
       </main>
 
-      <Footer content={content} />
+      <Footer content={content} onBuy={openCheckout} />
+
+      {/* Checkout Modal */}
+      <PurchaseModal 
+        isOpen={isPurchaseModalOpen} 
+        onClose={closeCheckout} 
+        content={content.checkout} 
+      />
     </div>
   );
 };

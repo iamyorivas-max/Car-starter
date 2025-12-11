@@ -70,4 +70,23 @@ export interface Content {
     subtext: string;
     copyright: string;
   };
+  checkout: {
+    title: string;
+    product: string;
+    price: string;
+    labels: {
+      name: string;
+      email: string;
+      phone: string;
+      address: string;
+      city: string;
+      card: string;
+    };
+    action: string;
+    success: {
+      title: string;
+      message: string;
+      close: string;
+    };
+  };
 }

@@ -78,6 +78,25 @@ export const translations: Record<Language, Content> = {
       cta: "Commandez maintenant",
       subtext: "Livraison gratuite & Garantie 30 jours satisfait ou remboursé",
       copyright: "© 2024 VoltStart. Tous droits réservés.",
+    },
+    checkout: {
+      title: "Finaliser la commande",
+      product: "VoltStart Pro - Pack Complet",
+      price: "89,99 €",
+      labels: {
+        name: "Nom complet",
+        email: "Adresse email",
+        phone: "Numéro de téléphone",
+        address: "Adresse de livraison",
+        city: "Ville & Code Postal",
+        card: "Carte Bancaire (Simulé)",
+      },
+      action: "Payer et Commander",
+      success: {
+        title: "Commande Confirmée !",
+        message: "Merci pour votre achat. Vous recevrez un email de confirmation avec le numéro de suivi sous peu.",
+        close: "Fermer",
+      }
     }
   },
   ar: {
@@ -157,6 +176,25 @@ export const translations: Record<Language, Content> = {
       cta: "اطلب الآن",
       subtext: "شحن مجاني وضمان استرجاع الأموال لمدة 30 يوماً",
       copyright: "© 2024 VoltStart. جميع الحقوق محفوظة.",
+    },
+    checkout: {
+      title: "إتمام الطلب",
+      product: "VoltStart Pro - الباقة الكاملة",
+      price: "$95.00",
+      labels: {
+        name: "الاسم الكامل",
+        email: "البريد الإلكتروني",
+        phone: "رقم الهاتف",
+        address: "عنوان التوصيل",
+        city: "المدينة والرمز البريدي",
+        card: "بطاقة الائتمان (محاكاة)",
+      },
+      action: "ادفع واطلب الآن",
+      success: {
+        title: "تم تأكيد الطلب!",
+        message: "شكراً لشرائك. ستصلك رسالة تأكيد عبر البريد الإلكتروني تحتوي على رقم التتبع قريباً.",
+        close: "إغلاق",
+      }
     }
   }
 };

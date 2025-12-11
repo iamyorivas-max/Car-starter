@@ -10,8 +10,12 @@ interface SectionProps {
   content: Content;
 }
 
+interface InteractiveProps extends SectionProps {
+  onBuy: () => void;
+}
+
 // --- HERO SECTION ---
-export const Hero: React.FC<SectionProps> = ({ content }) => {
+export const Hero: React.FC<InteractiveProps> = ({ content, onBuy }) => {
   return (
     <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
       {/* Background Elements */}
@@ -34,7 +38,10 @@ export const Hero: React.FC<SectionProps> = ({ content }) => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-          <button className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.3)]">
+          <button 
+            onClick={onBuy}
+            className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+          >
             {content.hero.ctaPrimary}
           </button>
           <a href="#features" className="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 hover:border-white/40 text-white rounded-full font-semibold transition-all hover:bg-white/5">
@@ -270,13 +277,16 @@ export const FAQ: React.FC<SectionProps> = ({ content }) => {
 };
 
 // --- FOOTER ---
-export const Footer: React.FC<SectionProps> = ({ content }) => {
+export const Footer: React.FC<InteractiveProps> = ({ content, onBuy }) => {
   return (
     <footer className="bg-tech-dark pt-20 pb-10 border-t border-white/10">
       <div className="container mx-auto px-6 text-center">
         <div className="max-w-3xl mx-auto mb-16">
            <h2 className="text-3xl font-bold text-white mb-6">{content.hero.title}</h2>
-           <button className="px-10 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-xl shadow-[0_0_30px_rgba(37,99,235,0.4)] transition-all hover:scale-105 mb-4">
+           <button 
+             onClick={onBuy}
+             className="px-10 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-xl shadow-[0_0_30px_rgba(37,99,235,0.4)] transition-all hover:scale-105 mb-4"
+           >
              {content.footer.cta}
            </button>
            <p className="text-gray-500 text-sm">{content.footer.subtext}</p>
